@@ -83,7 +83,6 @@ h1 strong{
 	font-weight: 900;
 }
 h2{
-	;
 	line-height: 20px;
 	margin:  0;
 }
@@ -338,7 +337,7 @@ font-weight: 900;
 	color: #dfdfdf;
 	letter-spacing: 1px;
         font-size:.79em;
-       //text-shadow:1px 0px rgba(0,0,0,0.5);
+       text-shadow:1px 0px rgba(0,0,0,0.5);
        transition:all 1s ease-out;
 }
 .amd-menu.navbar-default .navbar-nav > li > a:hover {
@@ -346,7 +345,7 @@ font-weight: 900;
 	color: #222;
 	letter-spacing: 1px;
         font-size:.79em;
-         //text-shadow:1px 0px rgba(0,0,0,0.5);
+         /*text-shadow:1px 0px rgba(0,0,0,0.5);*/
 }
 
 .navbar-default .navbar-nav > .active > a, 
@@ -895,6 +894,7 @@ blockquote .small, blockquote footer, blockquote small {
 -----------------------------------------------*/
 .contactus >.container
 {
+    visibility:hidden;
     padding:90px 0px;
 }
 #contact-form .form-control{
@@ -916,6 +916,7 @@ blockquote .small, blockquote footer, blockquote small {
 
 .contactus
 {
+    visibility:hidden;
     padding:30px 0px;
      position:relative;
      background:#222;
