@@ -6,9 +6,9 @@ $(window).on('load',function(){
             ,"http://ws.acgvideo.com/b/c2/16324690-1-hd.mp4?wsTime=1492383205&platform=pc&wsSecret2=a521625c54518089225fbf89315c0bb6&oi=1924520460&rate=1350"
             ,"http://ws.acgvideo.com/c/68/16239234-1-hd.mp4?wsTime=1492382425&platform=pc&wsSecret2=1c7e92793842b5257d8f4bf4d95a4672&oi=1924520460&rate=1350"
             ,"http://ws.acgvideo.com/6/5e/16239418-1-hd.mp4?wsTime=1492382482&platform=pc&wsSecret2=135fc75eb6639505c39e9ebb82a5d5d3&oi=1924520460&rate=1350"
-            ,"http://ws.acgvideo.com/8/e9/16315681-1-hd.mp4?wsTime=1492382700&platform=pc&wsSecret2=50f23fa769b9cb19185970510dc022b9&oi=1924520460&rate=1350"
             ,"http://ws.acgvideo.com/d/d8/15957515-1-hd.mp4?wsTime=1492385470&platform=pc&wsSecret2=7f604d83e0b1cdeb8bbe3411d418b4c8&oi=1924520460&rate=1350"
             ,"http://ws.acgvideo.com/d/70/15537449-1-hd.mp4?wsTime=1492385782&platform=pc&wsSecret2=f79cbc5635745e7e688c32a3244299a6&oi=1924520460&rate=1350"
+            ,"http://ws.acgvideo.com/7/36/16164898-1.flv?wsTime=1492388801&platform=pc&wsSecret2=25efc02253711bcf869ec4d83ae4efbe&oi=1924520460&rate=1350"
         ];
 
         var count = 0;
@@ -17,22 +17,21 @@ $(window).on('load',function(){
             count++;
         }
     }
-
+    // Event
+    document.getElementById('video').addEventListener("ended", updateState, true);
+    document.getElementById('video').addEventListener("error", updateState, true);
     // Video
     playMovie(url);
     createTable();
-
-    // Event
-    document.getElementById('video').addEventListener("ended", updateState, true);
 });
 
+// LocalStorage Save
 function saveUrl(){
     var url = document.getElementById("url").value;
 
-
     if (hasMovieUrl(url)) {
+        url = searchUrl(url);
     } else {
-        // LocalStorage Save
         localStorage.setItem(getDate(), url);
     }
 
@@ -44,11 +43,21 @@ function saveUrl(){
 
 function hasMovieUrl(url){
     for (var i = 0; i < localStorage.length; i++) {
-        if (url === localStorage.key(i)){
+        if (getLocalStorageItemVal(i).indexOf(url) > 0){
             return true;
         }
     }
     return false;
+}
+
+function searchUrl(hint){
+    for (var i = 0; i < localStorage.length; i++) {
+        var src = getLocalStorageItemVal(i);
+
+        if (src.indexOf(hint) > 0){
+            return src; 
+        }
+    }
 }
 
 function getRandomMovieUrl(){
@@ -86,9 +95,12 @@ function updateState(evt) {
 	var msg = "";
 	var t = "loadeddata";
 	if( evt && evt.type ) {
-		t = evt.type;
 	}
 	if( video.error ) {
+        console.log(video.error);
+        console.log(document.getElementById('video').src);
+        document.getElementById('video').src = getRandomMovieUrl();
+        document.getElementById('video').play();
 	} else if( t == "loadstart" ) {
 	} else if( t == "loadeddata" ) {
 	} else if( t == "play" ) {
