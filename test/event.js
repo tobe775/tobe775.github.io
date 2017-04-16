@@ -9,13 +9,18 @@ $(window).on('load',function(){
 });
 
 function saveUrl(){
-    $.cookie(getDate(), document.getElementById("url").value, { expires: 365*5, path: './' });
-    playMovie(document.getElementById("url").value);
+    var url =  document.getElementById("url").value;
+
+    $.cookie(getDate(), url, { expires: 365*5, path: './' });
+    
+    if(document.getElementById("urlLoad").checked){
+        console.log(url)
+        playMovie(url);
+    } 
 }
 
 function getRandomMovieUrl(){
     var cookieItem = document.cookie.split(";");
-
     if(cookieItem.length === 0){return;}
     return cookieItem[getRandomArbitary(0,cookieItem.length)];
 }
@@ -26,11 +31,7 @@ function getRandomArbitary(min, max) {
 
 function playMovie(src){
     var video = document.getElementById('video');
-    var source = document.createElement('source');
-
-    source.setAttribute('src', src);
-
-    video.appendChild(source);
+    video.src = src;
     video.play();
 }
 
