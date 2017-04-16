@@ -12,14 +12,15 @@ function saveUrl(){
 
     if (!checkUrl()) {
         return false;
+    }else {
+        // LocalStorage Save
+        localStorage.setItem(getDate(),url);
+        
+        // Cookie Save 
+        // $.cookie(getDate(), url, { expires: 365*5, path: './' });
     }
-    
-    // LocalStorage Save
-    localStorage.setItem(getDate(),url);
-    
-    // Cookie Save 
-    // $.cookie(getDate(), url, { expires: 365*5, path: './' });
-    
+
+    // 再生変換    
     if(document.getElementById("urlLoad").checked){
         playMovie(url);
     } 
@@ -42,7 +43,7 @@ function getRandomMovieUrl(){
 
     // localstoge
     if(localStorage.length > 1){
-        var key = localStorage.key(getRandomArbitary(1, localStorage.length));
+        var key = localStorage.key(getRandomArbitary(0, localStorage.length));
         return localStorage.getItem(key);
     }
 }
