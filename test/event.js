@@ -5,8 +5,12 @@ $(window).on('load',function(){
         localStorage.setItem("start0_" + getDate(), url);
         url = "http://ws.acgvideo.com/8/52/16358887-1-hd.mp4?wsTime=1492373620&platform=pc&wsSecret2=0ba8e3a7a19c4666566c79c3878b4f4a&oi=1924520460&rate=1350"
         localStorage.setItem("start1_" + getDate(), url);
+        url = "http://ws.acgvideo.com/c/68/16239234-1-hd.mp4?wsTime=1492381819&platform=pc&wsSecret2=64d228244cab31bb2453ec20617bb10d&oi=1924520460&rate=1350"
+        localStorage.setItem("start2_" + getDate(), url);
+        url = "http://ws.acgvideo.com/6/5e/16239418-1-hd.mp4?wsTime=1492381918&platform=pc&wsSecret2=f1bd27115793a83fd66acbf64d66de1f&oi=1924520460&rate=1350"
+        localStorage.setItem("start3_" + getDate(), url);
     }
-    
+
     playMovie(url);
     document.getElementById('video').addEventListener("ended", updateState, true);
 });
@@ -56,7 +60,6 @@ function playMovie(src){
 
 /* 状態表示 */
 function updateState(evt) {
-    alert("updateState");
 	var msg = "";
 	var t = "loadeddata";
 	if( evt && evt.type ) {

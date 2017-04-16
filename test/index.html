@@ -15,13 +15,22 @@
 </head>
 <body>
 
-    <div class="main">
-        <textarea rows="10" cols="85" id="url" ></textarea><br />
-        <input type="button" value="Exec" onclick="saveUrl();"/>
-        <input type="checkbox" id="urlLoad" value="1">Set URL Load<br />
-        <video id="video" width="640" height="480" controls>
-    </div>
+    <div id="inner">  
+        <div id="mainWrap">  
+            <video id="video" controls><br />
+        </div><!-- /mainWrap -->  
+        <div id="sideWrap">  
+            <div id="sideInner">
+                <p class="navi">aaaa</p>
+                <textarea id="url" ></textarea><br />
+                <input type="button" value="Exec" onclick="saveUrl();"/>
+                <input type="checkbox" id="urlLoad" value="1">Set URL Load<br />
+            </div>
+        </div><!-- /sideWrap -->  
+    </div><!-- /inner -->  
 
-    <p class="navi">aaaa</p>
+    
+
+    
 </body>
 </html>

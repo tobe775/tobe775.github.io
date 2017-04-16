@@ -1,13 +1,16 @@
-#navi{
-margin:0;
-padding:0;
-float:right;
-width:150px;
+body { text-align:center; }  
+#wrap { width:auto; text-align:left; margin:0 auto; }  
+#inner { margin:0 10px; }
+#mainWrap { width:50vw; float:left; }  
+#sideWrap {
+    background : #00ff00;
+    margin-left : 30px;
+    margin-right : 30px;
+    width: 40vw;
+    right : 0;
+    position : absolute;
 }
-
-#main{
-margin:0;
-padding:0;
-float:left;
-width:300px;
+#sideInner {
+    text-align: center;
 }
+#video { width:50vw;  }
