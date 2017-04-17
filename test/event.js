@@ -8,7 +8,8 @@ $(window).on('load',function(){
             ,"http://ws.acgvideo.com/6/5e/16239418-1-hd.mp4?wsTime=1492382482&platform=pc&wsSecret2=135fc75eb6639505c39e9ebb82a5d5d3&oi=1924520460&rate=1350"
             ,"http://ws.acgvideo.com/d/d8/15957515-1-hd.mp4?wsTime=1492385470&platform=pc&wsSecret2=7f604d83e0b1cdeb8bbe3411d418b4c8&oi=1924520460&rate=1350"
             ,"http://ws.acgvideo.com/d/70/15537449-1-hd.mp4?wsTime=1492385782&platform=pc&wsSecret2=f79cbc5635745e7e688c32a3244299a6&oi=1924520460&rate=1350"
-            ,"http://ws.acgvideo.com/7/36/16164898-1.flv?wsTime=1492388801&platform=pc&wsSecret2=25efc02253711bcf869ec4d83ae4efbe&oi=1924520460&rate=1350"
+            ,"http://ws.acgvideo.com/6/bc/15940645-1-hd.mp4?wsTime=1492392952&platform=pc&wsSecret2=fca3479fed902f09f479905a66ca556c&oi=1924520460&rate=1350"
+
         ];
 
         var count = 0;
@@ -18,8 +19,11 @@ $(window).on('load',function(){
         }
     }
     // Event
-    document.getElementById('video').addEventListener("ended", updateState, true);
-    document.getElementById('video').addEventListener("error", updateState, true);
+    document.getElementById('video').addEventListener("ended", updateState, false);
+    document.getElementById('video').addEventListener("error", updateState, false);
+    document.getElementById('video').addEventListener("waiting", updateState, false);
+    document.getElementById('video').addEventListener("timeupdate", updateState, false);
+    
     // Video
     playMovie(url);
     createTable();
@@ -53,7 +57,6 @@ function hasMovieUrl(url){
 function searchUrl(hint){
     for (var i = 0; i < localStorage.length; i++) {
         var src = getLocalStorageItemVal(i);
-
         if (src.indexOf(hint) > 0){
             return src; 
         }
@@ -85,32 +88,43 @@ function createTable(){
 }
 
 function playMovie(src){
+    var title = document.getElementById('title');
     var video = document.getElementById('video');
+    
+    title.innerHTML = src;
+
     video.src = src;
     video.play();
 }
 
 /* 状態表示 */
 function updateState(evt) {
-	var msg = "";
 	var t = "loadeddata";
-	if( evt && evt.type ) {
+    var video = document.getElementById("video");
+
+    if( evt && evt.type ) {
+		t = evt.type;
 	}
+
 	if( video.error ) {
         console.log(video.error);
         console.log(document.getElementById('video').src);
-        document.getElementById('video').src = getRandomMovieUrl();
-        document.getElementById('video').play();
+        playMovie(getRandomMovieUrl());
 	} else if( t == "loadstart" ) {
 	} else if( t == "loadeddata" ) {
 	} else if( t == "play" ) {
 	} else if( t == "playing" ) {
 	} else if( t == "pause" ) {
 	} else if( t == "ended" ) {
-        document.getElementById('video').src = getRandomMovieUrl();
-        document.getElementById('video').play();
+        playMovie(getRandomMovieUrl());
 	} else if( t == "waiting" ) {
-	}
+        console.log("waiting");
+        video.currentTime = video.currentTime + 5.0;
+        video.currentTime = video.currentTime - 5.0;
+        // video.currentTime = video.currentTime - 1.0;
+	} else if( t == "timeupdate" ){
+        console.log("timeupdate " + video.currentTime.toString());
+    }
 }
 
 function getDate(){
