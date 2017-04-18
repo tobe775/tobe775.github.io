@@ -67,6 +67,8 @@ function defaultSetMovie(){
         ,"https://ia601505.us.archive.org/10/items/GuP05_201704/GuP05.mp4"
         ,"https://files.catbox.moe/ghz35z.mp3?"
         ,"https://nodefiles.com/vidembed-qdaka8v7uf4u.mp4"
+        ,"http://www.indishare.com/mp3embed-v68501bjywo3.mp3?"
+        ,"https://file.ac/llqc5lLKxLo/Warau-New_03.mp4"
     ];
 
     var count = 0;
