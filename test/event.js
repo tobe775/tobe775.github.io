@@ -189,8 +189,6 @@ function playMovie(src){
             cnt++;
         }
 
-        alert(youId);
-
         // URLの場合
         if (youId === undefined ){
              playMovie(getRandomMovieUrl());
