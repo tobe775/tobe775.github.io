@@ -168,6 +168,7 @@ function playMovie(src){
             ,"https://youtu.be/([a-zA-Z0-9\-_\.:@!~*'\(¥);\+$,]+)"
         ];
 
+
         var cnt = 0;
         var youId = undefined;
         for (item in matchList) {
@@ -181,12 +182,14 @@ function playMovie(src){
                     youId = resultVal[2];
                 }
                 else if (cnt === 2) {
-                    youId = resultVal[2];
+                    youId = resultVal[1];
                 }
                 break;
             }
             cnt++;
         }
+
+        alert(youId);
 
         // URLの場合
         if (youId === undefined ){
