@@ -10,7 +10,17 @@ body { text-align:center; }
     right : 0;
     position : absolute;
 }
+
+
+#urlTable{ width:auto;  }
+
 #sideInner {
     text-align: center;
 }
-#video { width:50vw;  }
+#video { width:50vw; }
+
+#player { 
+    width:50vw;
+}
+
+#movieTable { width:auto;  }
