@@ -114,7 +114,7 @@ function reset(){
 
 function hasMovieUrl(url){
     for (var i = 0; i < localStorage.length; i++) {
-        if (getLocalStorageItemVal(i).indexOf(url) > 0){
+        if (getLocalStorageItemVal(i).indexOf(url) > -1){
             return true;
         }
     }
