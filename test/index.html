@@ -19,24 +19,18 @@
 </head>
 <body>
     <p id="title">title</p>
-    <div id="inner">  
-        <div id="mainWrap">  
-            <div id="player"></div>
-            <video id="video" controls><br />
-        </div><!-- /mainWrap -->  
-        <div id="sideWrap">  
-            <div id="sideInner">
-                <table id="movieTable" border="1"></table>
-                <textarea id="urlTable" ></textarea><br />
-                <input type="button" value="save" onclick="saveUrl();"/>
-                <input type="button" value="reset" onclick="reset();"/>
-                <input type="checkbox" id="urlLoad" value="1">Set URL Load<br />
-            </div>
-        </div><!-- /sideWrap -->  
-    </div><!-- /inner -->  
+    <div class="top">
+        <div id="player"></div>
+        <video id="video" controls>
 
-    
-
+    </div>
+    <div class="bottom">
+        <table id="movieTable" border="1"></table>
+        <textarea id="urlTable" ></textarea><br />
+        <input type="button" value="save" onclick="saveUrl();"/>
+        <input type="button" value="reset" onclick="reset();"/>
+        <input type="checkbox" id="urlLoad" value="1">Set URL Load<br />
+    </div>
     
 </body>
 </html>
