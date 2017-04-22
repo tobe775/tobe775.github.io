@@ -1,0 +1,36 @@
+.top-left {
+    top: 0%;
+    left: 0%;
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    position: absolute;
+}
+
+.top-right {
+    top: 0%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    background-color: red;
+    position: absolute;
+}
+
+.bottom-left {
+    top: 50%;
+    left: 0%;
+    width: 50%;
+    height: 50%;
+    background-color: green;
+    position: absolute;
+}
+
+.bottom-right {
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    position: absolute;
+}
+
