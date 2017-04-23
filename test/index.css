@@ -18,14 +18,25 @@ body { text-align:center; }
     background-color: black;
 }
 
+.filter {
+    opacity : 0.0;
+    top:0%;
+    left:0%;
+    position: absolute;
+    height: 85%;
+    width: 100%;
+    background-color: black;
+}
+
 .bottom{
     background-color: cadetblue;
-    padding-top:10px; 
+    /*padding-top:10px; */
     align-content: center;
     position: absolute;
     width: 100%;
     height: auto;
     top:90%;
+    bottom: 0;
     left:0%;
 }
 
