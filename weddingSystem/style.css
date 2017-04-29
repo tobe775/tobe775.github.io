@@ -467,12 +467,12 @@ body {
 
 input,
 textarea {
-	display: block
+	display: block;
 	border:0;
 	padding:12px 0 12px 140px;
 	border:solid 1px #efd4d9;
 	margin:0;
-	width: 358px;
+	width: 100%;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -530,7 +530,7 @@ textarea:focus {
 }
 
 .index h1 {
-	margin: 0 auto 80px auto;
+	margin: 10% auto 80px auto;
 	width: 170px;
 	height: 50px;
 	background-repeat: no-repeat;
@@ -591,6 +591,14 @@ textarea:focus {
 .index li a:hover {
 	text-decoration: none;
 }
+
+.input-text-id {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+}
+
+
 /* ==========================================================================
 	 sendpass.html
 	 ========================================================================== */
